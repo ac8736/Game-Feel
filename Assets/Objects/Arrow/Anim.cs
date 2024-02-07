@@ -16,9 +16,13 @@ public class Anim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(arrowKey))
+        if (Input.GetKey(arrowKey))
         {
+            this.gameObject.GetComponent<Renderer>().material.color = Color.red;
             animator.SetTrigger("click");
+        } else
+        {
+            this.gameObject.GetComponent<Renderer>().material.color = Color.white;
         }
     }
 }

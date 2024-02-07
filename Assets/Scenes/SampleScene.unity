@@ -202,11 +202,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 3086392390224670126, guid: 5d0b83812fea4d84f9ef276f5ab0e8e5, type: 3}
   spawnPoint: {fileID: 1395967930}
-  initialSpawnInterval: 3
-  minSpawnInterval: 0.5
-  intervalDecreaseRate: 0.1
-  timeUntilMinInterval: 30
-  spawnCooldown: 1
 --- !u!4 &9784587 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9127138447083379187, guid: a9ab2667bb01d0f49ab64f612b17b0f6, type: 3}
@@ -231,11 +226,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 6310024572407976912, guid: 949029ac7ba27254aaab0ddb1447b34e, type: 3}
   spawnPoint: {fileID: 142957136}
-  initialSpawnInterval: 3
-  minSpawnInterval: 0.5
-  intervalDecreaseRate: 0.1
-  timeUntilMinInterval: 30
-  spawnCooldown: 1
 --- !u!4 &35508106 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9127138447083379187, guid: a9ab2667bb01d0f49ab64f612b17b0f6, type: 3}
@@ -302,7 +292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5675787814856526768, guid: abf9f57508bc8d5459c43576c36d8227, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.664999
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 5675787814856526768, guid: abf9f57508bc8d5459c43576c36d8227, type: 3}
       propertyPath: m_LocalPosition.y
@@ -429,11 +419,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 3598355621381747906, guid: 5d1568f5b88ff4949956f8f9d2e1b197, type: 3}
   spawnPoint: {fileID: 652376326}
-  initialSpawnInterval: 3
-  minSpawnInterval: 0.5
-  intervalDecreaseRate: 0.1
-  timeUntilMinInterval: 30
-  spawnCooldown: 1
 --- !u!4 &346739049 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9127138447083379187, guid: a9ab2667bb01d0f49ab64f612b17b0f6, type: 3}
@@ -504,7 +489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5675787814856526768, guid: abf9f57508bc8d5459c43576c36d8227, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.664999
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 5675787814856526768, guid: abf9f57508bc8d5459c43576c36d8227, type: 3}
       propertyPath: m_LocalPosition.y
@@ -626,11 +611,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 1345041054086173732, guid: 48f6139dda9a37740a54dc8cff0cbf4e, type: 3}
   spawnPoint: {fileID: 662883953}
-  initialSpawnInterval: 3
-  minSpawnInterval: 0.5
-  intervalDecreaseRate: 0.1
-  timeUntilMinInterval: 30
-  spawnCooldown: 1
 --- !u!4 &498039838 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9127138447083379187, guid: a9ab2667bb01d0f49ab64f612b17b0f6, type: 3}
@@ -1001,6 +981,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1246185491}
+  - component: {fileID: 1246185492}
   m_Layer: 0
   m_Name: Spawners
   m_TagString: Untagged
@@ -1027,6 +1008,19 @@ Transform:
   - {fileID: 346739049}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1246185492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246185490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6a0d1e270468c34f8b4989e2776c81c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxCD: 1
 --- !u!1001 &1379182436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1057,7 +1051,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5675787814856526768, guid: abf9f57508bc8d5459c43576c36d8227, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.664999
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 5675787814856526768, guid: abf9f57508bc8d5459c43576c36d8227, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1142,6 +1136,7 @@ GameObject:
   - component: {fileID: 1458568952}
   - component: {fileID: 1458568954}
   - component: {fileID: 1458568953}
+  - component: {fileID: 1458568955}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -1188,7 +1183,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: '[score]'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1b6fa1b3eeb2eed4c92d09dd6b1603da, type: 2}
   m_sharedMaterial: {fileID: -5982287201796446972, guid: 1b6fa1b3eeb2eed4c92d09dd6b1603da, type: 2}
@@ -1265,6 +1260,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1458568951}
   m_CullTransparentMesh: 1
+--- !u!114 &1458568955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458568951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c753dbfd8a6a43b4b8717d81ac05b17d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: {fileID: 0}
 --- !u!1 &1812921624
 GameObject:
   m_ObjectHideFlags: 0
@@ -1517,7 +1525,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5675787814856526768, guid: abf9f57508bc8d5459c43576c36d8227, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.664999
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 5675787814856526768, guid: abf9f57508bc8d5459c43576c36d8227, type: 3}
       propertyPath: m_LocalPosition.y

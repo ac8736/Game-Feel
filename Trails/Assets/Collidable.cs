@@ -10,6 +10,8 @@ public class Collidable : MonoBehaviour
     private Transform player;
     private bool isDead;
 
+    public AudioClip[] deathSounds = { };
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -22,6 +24,11 @@ public class Collidable : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            if (collision.gameObject.GetComponent<PlayerController>().IsInvincible) {
+                ParticleSystem particle = GetComponentInChildren<ParticleSystem>();
+                var main = particle.main;
+                main.startColor = Color.cyan;
+            }
             Die();
         }
     }
@@ -45,8 +52,12 @@ public class Collidable : MonoBehaviour
 
     public IEnumerator PostDeath()
     {
-        // AudioSource.Play();
-        AudioSource.pitch = 1.5f;
+        AudioSource.clip = deathSounds[Random.Range(0, deathSounds.Length)];
+        AudioSource.volume = 0.8f;
+        if (GameFeelConfig.config[GameFeelFeature.Audio])
+        {
+            AudioSource.Play();
+        }
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
         AudioSource.Stop();

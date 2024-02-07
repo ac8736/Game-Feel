@@ -4970,7 +4970,10 @@ MonoBehaviour:
   healthbar: {fileID: 0}
   playerHealth: 100
   playerSpeed: 25
+  explosionAudio: {fileID: 8300000, guid: edc8e3954933ba84f964e22160c38e63, type: 3}
   invincibleCoolDown: 5
+  CanInvincible: 1
+  IsInvincible: 0
 --- !u!61 &5875765849293653317
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5105,7 +5108,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2383aeee46f5a6c438333a75710b48ca, type: 3}
+  m_audioClip: {fileID: 8300000, guid: edc8e3954933ba84f964e22160c38e63, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.439
   m_Pitch: 1
@@ -5316,6 +5319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f996b7b093a68284eb08bc3881f38e0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingAudio: {fileID: 8300000, guid: 8a30e759e7e04ec40afcbcc57f4979bc, type: 3}
   m_Projectile: {fileID: 4168291044097174178, guid: 74261a9edcb7e06428b99ac4d05f9587, type: 3}
   m_SpawnTransform: {fileID: 8743776360013310384}
   _bulletSpeed: 20

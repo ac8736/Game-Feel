@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Assets;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,6 +22,7 @@ public class GameController : MonoBehaviour
     public int Score = 0;
     public Animator GameOverGUI;
     public Animator FlashGUI;
+    public AudioSource AudioSource;
 
     private float spawnTimer = 0;
     private float gameOverDelay = 0f;
@@ -32,6 +34,7 @@ public class GameController : MonoBehaviour
         GameOver = false;
         self = this;
         Time.timeScale = 1f;
+        AudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -44,6 +47,10 @@ public class GameController : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.Space) && gameOverDelay <= 0)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                if (GameFeelConfig.config[GameFeelFeature.Audio])
+                {
+                    AudioSource.Play();
+                }
             }
             return;
         }

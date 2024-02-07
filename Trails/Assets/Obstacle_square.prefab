@@ -1300,7 +1300,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 1
+    enabled: 0
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -5074,6 +5074,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  deathSounds:
+  - {fileID: 8300000, guid: 399ff697b48327e4daf00488cf7c7bde, type: 3}
+  - {fileID: 8300000, guid: c3c2dea3f48cea644ae4846d43813d0c, type: 3}
+  - {fileID: 8300000, guid: eb7298013ec276f41b34ae37c6b484e5, type: 3}
+  - {fileID: 8300000, guid: 2810ae1a310b5c64686d8f11ccdce7cf, type: 3}
 --- !u!50 &-8482211142514436983
 Rigidbody2D:
   serializedVersion: 4

@@ -11,12 +11,15 @@ public class PlayerController : MonoBehaviour
     AudioSource AudioSource;
     Rigidbody2D _rigidBody;
 
+    public AudioClip explosionAudio;
+    public AudioClip invincibleAudio;
+
     public bool IsDead { get; private set; } = false;
 
     public float invincibleCoolDown = 5.0f;
 
     public bool CanInvincible = true;
-    private bool isInvincible = false;
+    public bool IsInvincible = false;
     private Animator anim;
     private Animator childAnim;
     private TrailRenderer trailRenderer;
@@ -62,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Rock") && !isInvincible)
+        if (collision.gameObject.CompareTag("Rock") && !IsInvincible)
         {
             TakeDamage(20);
         }
@@ -95,12 +98,18 @@ public class PlayerController : MonoBehaviour
         childAnim.SetTrigger("shield");
         CanInvincible = false;
         healthbar.SetShieldUI(CanInvincible);
-        isInvincible = true;
-        healthbar.SetInvincible(isInvincible);
+        IsInvincible = true;
+        healthbar.SetInvincible(IsInvincible);
+        AudioSource.clip = invincibleAudio;
+        AudioSource.volume = 0.3f;
+        if (GameFeelConfig.config[GameFeelFeature.Audio])
+        {
+            AudioSource.Play();
+        }
         yield return new WaitForSeconds(3);
         childAnim.SetTrigger("unshield");
-        isInvincible = false;
-        healthbar.SetInvincible(isInvincible);
+        IsInvincible = false;
+        healthbar.SetInvincible(IsInvincible);
         StartCoroutine(InvincibleCoolDown());
     }
 
@@ -132,9 +141,13 @@ public class PlayerController : MonoBehaviour
     IEnumerator PostDeath()
     {
         bool slowMo = GameFeelConfig.config[GameFeelFeature.SlowMoOnDeath];
-        // AudioSource.Play();
-        AudioSource.pitch = 1.5f;
         if (slowMo) { Time.timeScale = 0.1f; }
+        AudioSource.clip = explosionAudio;
+        AudioSource.volume = 0.4f;
+        if (GameFeelConfig.config[GameFeelFeature.Audio])
+        {
+            AudioSource.Play();
+        }
         yield return new WaitForSeconds(0.6f);
         Time.timeScale = 1f;
         AudioSource.Stop();

@@ -24,13 +24,15 @@ namespace Assets
                     case GameFeelFeature.MovementTrail:
                         return "Movement Trail";
                     case GameFeelFeature.Particles:
-                        return "Particle Effect";
+                        return "Particle Effects";
                     case GameFeelFeature.TextAnimation:
                         return "Score Animation";
                     case GameFeelFeature.SlowMoOnDeath:
                         return "Slow-mo Death";
                     case GameFeelFeature.ScreenFlash:
                         return "Screen Flash";
+                    case GameFeelFeature.Audio:
+                        return "Sound Effects";
                     default:
                         return "Unknown";
                 }
@@ -55,6 +57,10 @@ namespace Assets
         {
             if (Input.GetKeyUp(KeyShortcut)) {
                 toggle.isOn = !toggle.isOn;
+                if (config[GameFeelFeature.Audio])
+                {
+                    GameController.self.AudioSource.Play();
+                }
             }
             config[ControllingFeature] = toggle.isOn;
         }
@@ -67,6 +73,7 @@ namespace Assets
         MovementTrail,
         TextAnimation,
         SlowMoOnDeath,
-        ScreenFlash
+        ScreenFlash,
+        Audio
     }
 }

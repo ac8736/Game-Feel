@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     public static float SpawnInterval = 0.5f;
     public static float MinSpawnInterval = 0.1f;
     public static float SpawnIntervalChangeRate = -0.01f;
+    public static int SpawnLimit = 30;
     public static GameController self;
     
     public PlayerController Player;
@@ -49,7 +50,7 @@ public class GameController : MonoBehaviour
         }
 
         spawnTimer += Time.deltaTime;
-        if (spawnTimer > SpawnInterval)
+        if (spawnTimer > SpawnInterval && GameObject.FindGameObjectsWithTag("Rock").Length < SpawnLimit)
         {
             Collidable prefabToSpawn = ObstaclePrefab;
             Instantiate(prefabToSpawn, (Vector2)(Player.transform.position) + Random.insideUnitCircle * 12, Quaternion.identity);

@@ -44,7 +44,7 @@ public class Collidable : MonoBehaviour
     {
         // AudioSource.Play();
         AudioSource.pitch = 1.5f;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
         AudioSource.Stop();
         yield return null;

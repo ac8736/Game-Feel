@@ -60,7 +60,8 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Rock") && !isInvincible)
         {
             TakeDamage(20);
-        }    
+        }
+        GameController.self.CameraController.Shake(0.1f, 0.05f);
     }
 
     void TakeDamage(int dmg)

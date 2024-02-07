@@ -43,7 +43,6 @@ public class PlayerController : MonoBehaviour
         {
             AudioSource.time = 0f;
             AudioSource.volume = 0.5f;
-            AudioSource.Play();
         }
     }
 

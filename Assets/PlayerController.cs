@@ -87,6 +87,11 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        if (isInvincible)
+        {
+            component.Die();
+        }
+
         IsDead = true;
         var rb = GetComponent<Rigidbody2D>();
         rb.constraints = RigidbodyConstraints2D.None;

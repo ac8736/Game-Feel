@@ -66,7 +66,7 @@ public class Collidable : MonoBehaviour
     {
         
         AudioSource.time = deathClipStartTimes[Random.Range(0, deathClipStartTimes.Length)];
-        AudioSource.Play();
+        // AudioSource.Play();
         AudioSource.pitch = 1.5f;
         yield return new WaitForSeconds(1.5f);
         Destroy(gameObject);

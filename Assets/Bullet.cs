@@ -13,7 +13,8 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Rock"))
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<Animator>().SetTrigger("Die");
+            Destroy(collision.gameObject, 0.6f);
             Destroy(gameObject);
         }
         if (collision.gameObject.CompareTag("Boundary"))

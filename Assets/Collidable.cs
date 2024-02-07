@@ -22,7 +22,8 @@ public class Collidable : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            GetComponent<Animator>().SetTrigger("Die");
+            Destroy(gameObject, 0.3f);
         }
     }
 }

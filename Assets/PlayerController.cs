@@ -16,7 +16,8 @@ public class PlayerController : MonoBehaviour
 
     private bool canInvincible = true;
     private bool isInvincible = false;
-
+    private Animator anim;
+    private Animator childAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,8 @@ public class PlayerController : MonoBehaviour
         AudioSource = GetComponent<AudioSource>();
         _rigidBody = GetComponent<Rigidbody2D>();
         healthbar.SetMaxHealth(playerHealth);
+        anim = GetComponent<Animator>();
+        childAnim = transform.GetChild(3).gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -32,6 +35,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && canInvincible)
         {
             StartCoroutine(Invincible());
+        }
+
+        if (playerHealth <= 0 && !IsDead)
+        {
+            IsDead = true;
+            transform.GetChild(2).gameObject.SetActive(false);
+            anim.SetTrigger("death");
         }
     }
 
@@ -61,11 +71,13 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Invincible()
     {
+        childAnim.SetTrigger("shield");
         canInvincible = false;
         healthbar.SetShieldUI(canInvincible);
         isInvincible = true;
         healthbar.SetInvincible(isInvincible);
         yield return new WaitForSeconds(3);
+        childAnim.SetTrigger("unshield");
         isInvincible = false;
         healthbar.SetInvincible(isInvincible);
         StartCoroutine(InvincibleCoolDown());

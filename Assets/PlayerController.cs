@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     public HealthManager healthbar;
     public int playerHealth = 100;
     SpriteRenderer SpriteRenderer;
-    //ParticleSystem ParticleSystem;
     AudioSource AudioSource;
     Collider2D Collider;
     Rigidbody2D _rigidBody;
@@ -30,13 +29,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         SpriteRenderer = GetComponent<SpriteRenderer>();
-        //ParticleSystem = GetComponentInChildren<ParticleSystem>();
         Collider = GetComponent<Collider2D>();
         AudioSource = GetComponent<AudioSource>();
-        //var main = ParticleSystem.main;
-        //main.startColor = new ParticleSystem.MinMaxGradient(SpriteColor);
-        SpriteRenderer.color = SpriteColor;
-        gameObject.layer = LayerMask.NameToLayer($"Color{SpriteColorIndex}");
         _rigidBody = GetComponent<Rigidbody2D>();
         // Collider.excludeLayers = 1 << gameObject.layer;
         healthbar.SetMaxHealth(playerHealth);
@@ -58,7 +52,6 @@ public class PlayerController : MonoBehaviour
         {
             AudioSource.time = 0f;
             AudioSource.volume = 0.5f;
-            AudioSource.Play();
         }
 
         if (Input.GetMouseButtonDown(0) && canInvincible)
@@ -94,19 +87,10 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        // No issue if the colors match
-        if (component.SpriteColor == SpriteColor)
-        {
-            // Camera.Shake(0.5f, 0.15f);
-            component.Die();
-            GameController.Score += GameController.MovementForce * 2;
-            return;
-        }
         IsDead = true;
         var rb = GetComponent<Rigidbody2D>();
         rb.constraints = RigidbodyConstraints2D.None;
         rb.gravityScale = 1;
-        //GetComponentInChildren<ParticleSystem>().Stop();
     }
 
     void TakeDamage(int dmg)

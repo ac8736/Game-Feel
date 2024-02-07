@@ -6,16 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public static float SpawnInterval = 0.5f;
     public static bool GameOver = false;
 
+    public static float SpawnInterval = 0.5f;
     public static float MinSpawnInterval = 0.1f;
     public static float SpawnIntervalChangeRate = -0.01f;
     public static GameController self;
-
+    
     public PlayerController Player;
     public Collidable ObstaclePrefab;
     public CameraController CameraController;
+    public int Score = 0;
 
     private float spawnTimer = 0;
     private float gameOverDelay = 0f;

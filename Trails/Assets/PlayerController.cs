@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Assets;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
 
     private bool canInvincible = true;
     private bool isInvincible = false;
+    private TrailRenderer trailRenderer;
 
 
     // Start is called before the first frame update
@@ -24,6 +26,7 @@ public class PlayerController : MonoBehaviour
         AudioSource = GetComponent<AudioSource>();
         _rigidBody = GetComponent<Rigidbody2D>();
         healthbar.SetMaxHealth(playerHealth);
+        trailRenderer = GetComponent<TrailRenderer>();
     }
 
     // Update is called once per frame
@@ -33,6 +36,8 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(Invincible());
         }
+
+        trailRenderer.enabled = GameFeelConfig.config[GameFeelFeature.MovementTrail];
     }
 
     private void FixedUpdate()

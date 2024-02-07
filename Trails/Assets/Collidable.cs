@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using Assets;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Collidable : MonoBehaviour
@@ -45,6 +43,7 @@ public class Collidable : MonoBehaviour
         {
             GetComponentInChildren<ParticleSystem>().Play();
         }
+        GameController.self.Score += 100;
         StartCoroutine(PostDeath());
     }
 

@@ -27,6 +27,10 @@ namespace Assets
                         return "Particle Effect";
                     case GameFeelFeature.TextAnimation:
                         return "Score Animation";
+                    case GameFeelFeature.SlowMoOnDeath:
+                        return "Slow-mo Death";
+                    case GameFeelFeature.ScreenFlash:
+                        return "Screen Flash";
                     default:
                         return "Unknown";
                 }
@@ -39,9 +43,12 @@ namespace Assets
             GetComponentInChildren<Text>().text = $"[{KeyShortcut}] {labelText}";
             foreach (GameFeelFeature feature in Enum.GetValues(typeof(GameFeelFeature)))
             {
-                config[feature] = false;
+                if (!config.ContainsKey(feature))
+                {
+                    config[feature] = true;
+                }
             }
-
+            toggle.isOn = config[ControllingFeature];
         }
 
         private void Update()
@@ -58,6 +65,8 @@ namespace Assets
         CameraShake,
         Particles,
         MovementTrail,
-        TextAnimation
+        TextAnimation,
+        SlowMoOnDeath,
+        ScreenFlash
     }
 }

@@ -11,7 +11,7 @@ public class PlayerShoot : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !GetComponent<PlayerController>().IsDead)
         {
             GameObject bullet = Instantiate(m_Projectile, m_SpawnTransform.position, m_SpawnTransform.rotation);
             Rigidbody2D rigidbody = bullet.GetComponent<Rigidbody2D>();

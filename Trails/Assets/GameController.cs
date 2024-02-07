@@ -13,11 +13,14 @@ public class GameController : MonoBehaviour
     public static float SpawnIntervalChangeRate = -0.01f;
     public static int SpawnLimit = 30;
     public static GameController self;
+    public static float HighScore = 0;
     
     public PlayerController Player;
     public Collidable ObstaclePrefab;
     public CameraController CameraController;
     public int Score = 0;
+    public Animator GameOverGUI;
+    public Animator FlashGUI;
 
     private float spawnTimer = 0;
     private float gameOverDelay = 0f;
@@ -28,6 +31,7 @@ public class GameController : MonoBehaviour
         SpawnInterval = 0.5f;
         GameOver = false;
         self = this;
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
@@ -46,6 +50,7 @@ public class GameController : MonoBehaviour
 
         if (Player.IsDead) {
             GameOver = true;
+            if (Score > HighScore) HighScore = Score;
             gameOverDelay = 0.5f;
         }
 
@@ -53,7 +58,8 @@ public class GameController : MonoBehaviour
         if (spawnTimer > SpawnInterval && GameObject.FindGameObjectsWithTag("Rock").Length < SpawnLimit)
         {
             Collidable prefabToSpawn = ObstaclePrefab;
-            Instantiate(prefabToSpawn, (Vector2)(Player.transform.position) + Random.insideUnitCircle * 12, Quaternion.identity);
+            Vector2 dir = Random.insideUnitCircle.normalized;
+            Instantiate(prefabToSpawn, (Vector2)(Player.transform.position) + dir * Random.Range(5f, 12f), Quaternion.identity);
             spawnTimer = 0;
         }
 

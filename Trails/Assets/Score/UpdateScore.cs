@@ -31,7 +31,7 @@ public class UpdateScore : MonoBehaviour
         {
             growthSpeed = minSpeed;
         }
-        scoreBox.text = $"{(int)score}";
+        scoreBox.text = $"Score: {(int)score}\nHigh: {(int)GameController.HighScore}";
     }
 
 }

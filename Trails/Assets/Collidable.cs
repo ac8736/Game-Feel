@@ -36,7 +36,10 @@ public class Collidable : MonoBehaviour
         {
             GetComponentInChildren<ParticleSystem>().Play();
         }
-        GameController.self.Score += 100;
+        if (!GameController.GameOver)
+        {
+            GameController.self.Score += 100;
+        }
         StartCoroutine(PostDeath());
     }
 

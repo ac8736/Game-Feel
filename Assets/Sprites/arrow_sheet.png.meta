@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 25da37facea233240aa0a9a85e2c4b25
+guid: 336f57f1663b2514da1a151e6f1b3c32
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -137,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62130b5370f10b34f859607a91e9a27b
-      internalID: 1773238283
+      spriteID: 023cdf7ac926b7d439eec1627eff2494
+      internalID: 528161908
       vertices: []
       indices: 
       edges: []
@@ -158,8 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2364aadf24174df44974a7b07c65d39a
-      internalID: 1726668875
+      spriteID: dd8e7b292a302734da589b6c8e575b09
+      internalID: -492249566
       vertices: []
       indices: 
       edges: []
@@ -179,8 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d7ecd6ae92052647ac06e55f06b7892
-      internalID: -268340143
+      spriteID: 0a6dd9bffd17bf84a99586f5258690d4
+      internalID: 398218247
       vertices: []
       indices: 
       edges: []
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4348fd6cca8919d4db285fe6417c9ce0
-      internalID: -1621836987
+      spriteID: b20f6769bda4e4144a13830597e9e204
+      internalID: 1175538489
       vertices: []
       indices: 
       edges: []
@@ -210,8 +210,8 @@ TextureImporter:
       name: arrow_sheet_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 63
+        x: 112
+        y: 84
         width: 28
         height: 21
       alignment: 0
@@ -221,8 +221,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49c09d82f7fbc7d4bb8332be6ef95fc5
-      internalID: 1295473746
+      spriteID: b20de16c08ad557429d595b206bc6d9b
+      internalID: -1253379235
       vertices: []
       indices: 
       edges: []
@@ -231,7 +231,7 @@ TextureImporter:
       name: arrow_sheet_5
       rect:
         serializedVersion: 2
-        x: 28
+        x: 0
         y: 63
         width: 28
         height: 21
@@ -242,8 +242,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2216b9a11437e6741a0f166271d6a681
-      internalID: -1583373039
+      spriteID: d726c3124b55cab458b4e72251c53ac3
+      internalID: 550854921
       vertices: []
       indices: 
       edges: []
@@ -252,7 +252,7 @@ TextureImporter:
       name: arrow_sheet_6
       rect:
         serializedVersion: 2
-        x: 56
+        x: 28
         y: 63
         width: 28
         height: 21
@@ -263,8 +263,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2a00a657358f274cb550805dd0e6d9e
-      internalID: 1682337769
+      spriteID: 6d366ef7a6891554f96fe98bb2b56a4e
+      internalID: 1562271700
       vertices: []
       indices: 
       edges: []
@@ -273,6 +273,27 @@ TextureImporter:
       name: arrow_sheet_7
       rect:
         serializedVersion: 2
+        x: 56
+        y: 63
+        width: 28
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 526910813fe11af4dbf7632e3b167f1a
+      internalID: 324826328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow_sheet_8
+      rect:
+        serializedVersion: 2
         x: 84
         y: 63
         width: 28
@@ -284,29 +305,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb18a05885d9d344d9f144c5140d9797
-      internalID: 2078355198
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arrow_sheet_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 42
-        width: 28
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ffc6c4963fc038a45b03dc0303fa41ea
-      internalID: -2499583
+      spriteID: 00e874ab4f6348a449857f632d828b73
+      internalID: 1042351842
       vertices: []
       indices: 
       edges: []
@@ -315,8 +315,8 @@ TextureImporter:
       name: arrow_sheet_9
       rect:
         serializedVersion: 2
-        x: 28
-        y: 42
+        x: 112
+        y: 63
         width: 28
         height: 21
       alignment: 0
@@ -326,8 +326,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c50f1ca98f4aa1c4da3869f1ed70069c
-      internalID: 289756043
+      spriteID: 0b1d93de2df8bb74ab74aafc1b85ae4f
+      internalID: 2053361073
       vertices: []
       indices: 
       edges: []
@@ -336,7 +336,7 @@ TextureImporter:
       name: arrow_sheet_10
       rect:
         serializedVersion: 2
-        x: 56
+        x: 0
         y: 42
         width: 28
         height: 21
@@ -347,8 +347,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ac1ef6186307c046aa9639d1faf2048
-      internalID: -1524484883
+      spriteID: d7183a5af1316fb428d6a30a124dc118
+      internalID: -1110822339
       vertices: []
       indices: 
       edges: []
@@ -357,6 +357,48 @@ TextureImporter:
       name: arrow_sheet_11
       rect:
         serializedVersion: 2
+        x: 28
+        y: 42
+        width: 28
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cb781b088034a342a4db1059de8392c
+      internalID: -1983539761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow_sheet_12
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 42
+        width: 28
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5c430c833f0d8847afbe65224b0fb06
+      internalID: -1006513635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow_sheet_13
+      rect:
+        serializedVersion: 2
         x: 84
         y: 42
         width: 28
@@ -368,50 +410,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1abaf1f97ed4934087478e3b6dbbeb1
-      internalID: 730270652
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arrow_sheet_12
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 21
-        width: 28
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6d20606e54400104fafddf49b36e99e9
-      internalID: -1426135029
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arrow_sheet_13
-      rect:
-        serializedVersion: 2
-        x: 28
-        y: 21
-        width: 28
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7751045520cacb646a6f2f15c01d01cc
-      internalID: 67845947
+      spriteID: 6bdd64e6e9a27764bac04317f8b07cc9
+      internalID: -43565312
       vertices: []
       indices: 
       edges: []
@@ -420,6 +420,69 @@ TextureImporter:
       name: arrow_sheet_14
       rect:
         serializedVersion: 2
+        x: 112
+        y: 42
+        width: 28
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2774292856867fc40affa13f083bbe30
+      internalID: 1176072423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow_sheet_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 21
+        width: 28
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4df57f38afb1f564cb2106c664326889
+      internalID: -1935664236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow_sheet_16
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 21
+        width: 28
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca42cc884bce5584eaa74543fd0fe798
+      internalID: -1097080879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow_sheet_17
+      rect:
+        serializedVersion: 2
         x: 56
         y: 21
         width: 28
@@ -431,14 +494,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d2264b2ecd4ca54d96a7254a797b62d
-      internalID: 1968360482
+      spriteID: 3780072239a645d449bbd63fc3a1c355
+      internalID: -888294692
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrow_sheet_15
+      name: arrow_sheet_18
       rect:
         serializedVersion: 2
         x: 84
@@ -452,14 +515,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f8b3862cfcaeb34abeabfdd2bd71f77
-      internalID: -69694446
+      spriteID: 3a6e36087df40db4fabebac5f0914b63
+      internalID: 445544444
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrow_sheet_16
+      name: arrow_sheet_19
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 21
+        width: 28
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf45033cfe8b12d4eb5957a65a676602
+      internalID: 1109942259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow_sheet_20
       rect:
         serializedVersion: 2
         x: 0
@@ -473,71 +557,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 331924caa82b5ab45bf893b363a1cdac
-      internalID: -1320279958
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arrow_sheet_17
-      rect:
-        serializedVersion: 2
-        x: 28
-        y: 0
-        width: 28
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 720ac6d6460a6ad4bb894bf348bc16e7
-      internalID: 1999753996
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arrow_sheet_18
-      rect:
-        serializedVersion: 2
-        x: 56
-        y: 0
-        width: 28
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e9fd4462afce287439dfcd8997990133
-      internalID: -1498933462
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arrow_sheet_19
-      rect:
-        serializedVersion: 2
-        x: 84
-        y: 0
-        width: 28
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ef7e473f4fdf78740b241049c407ecde
-      internalID: 1091573214
+      spriteID: c84e6a8902c757d48aee53e856537168
+      internalID: 1978562353
       vertices: []
       indices: 
       edges: []
@@ -553,26 +574,27 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      arrow_sheet_0: 1773238283
-      arrow_sheet_1: 1726668875
-      arrow_sheet_10: -1524484883
-      arrow_sheet_11: 730270652
-      arrow_sheet_12: -1426135029
-      arrow_sheet_13: 67845947
-      arrow_sheet_14: 1968360482
-      arrow_sheet_15: -69694446
-      arrow_sheet_16: -1320279958
-      arrow_sheet_17: 1999753996
-      arrow_sheet_18: -1498933462
-      arrow_sheet_19: 1091573214
-      arrow_sheet_2: -268340143
-      arrow_sheet_3: -1621836987
-      arrow_sheet_4: 1295473746
-      arrow_sheet_5: -1583373039
-      arrow_sheet_6: 1682337769
-      arrow_sheet_7: 2078355198
-      arrow_sheet_8: -2499583
-      arrow_sheet_9: 289756043
+      arrow_sheet_0: 528161908
+      arrow_sheet_1: -492249566
+      arrow_sheet_10: -1110822339
+      arrow_sheet_11: -1983539761
+      arrow_sheet_12: -1006513635
+      arrow_sheet_13: -43565312
+      arrow_sheet_14: 1176072423
+      arrow_sheet_15: -1935664236
+      arrow_sheet_16: -1097080879
+      arrow_sheet_17: -888294692
+      arrow_sheet_18: 445544444
+      arrow_sheet_19: 1109942259
+      arrow_sheet_2: 398218247
+      arrow_sheet_20: 1978562353
+      arrow_sheet_3: 1175538489
+      arrow_sheet_4: -1253379235
+      arrow_sheet_5: 550854921
+      arrow_sheet_6: 1562271700
+      arrow_sheet_7: 324826328
+      arrow_sheet_8: 1042351842
+      arrow_sheet_9: 2053361073
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

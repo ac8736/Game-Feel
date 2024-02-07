@@ -1,26 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Collidable : MonoBehaviour
 {
-    public int SpriteColorIndex;
-    public Color SpriteColor { get { return GameController.Colors[SpriteColorIndex]; } }
-    SpriteRenderer SpriteRenderer;
-    Collider2D Collider;
     AudioSource AudioSource;
 
     public bool IsDead { get; private set; } = false;
+    public float MoveSpeed = 1f;
+    public float StopDistance = 0.5f;
+    public float AlertDistance = 15f;
+    public float ChaseCooldownLow = .13f;
+    public float ChaseCooldownHigh = .63f;
 
     private float[] deathClipStartTimes = new []{ 0, 3f, 7f };
+    private bool resting = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        SpriteRenderer = GetComponent<SpriteRenderer>();
-        SpriteRenderer.color = SpriteColor;
-        Collider = GetComponent<Collider2D>();
-        gameObject.layer = LayerMask.NameToLayer($"Color{SpriteColorIndex}");
+
         AudioSource = GetComponent<AudioSource>();
     }
 
@@ -32,18 +32,25 @@ public class Collidable : MonoBehaviour
             transform.localScale *= 0.95f;
         }
 
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        rb.AddForce(GameController.MovementForce * Time.deltaTime * Vector2.left);
-        if (rb.velocity.x >= 0)
+        // Move towards player
+        Vector2 playerPos = GameController.self.Player.transform.position;
+        float distance = Vector2.Distance(transform.position, playerPos);
+
+        // Decide whether to chase the player or not
+        if (resting)
         {
-            rb.velocity = Vector2.zero;
+            return;
+        }
+     
+        if (distance >= StopDistance)
+        {
+            transform.position = Vector2.Lerp(transform.position, playerPos, MoveSpeed * Time.deltaTime);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && !GameController.GameOver)
+        // Take a break after chasing
+        if (distance < StopDistance)
         {
-            SpriteColorIndex = (SpriteColorIndex + 1) % GameController.Colors.Length;
-            SpriteRenderer.color = SpriteColor;
-            gameObject.layer = LayerMask.NameToLayer($"Color{SpriteColorIndex}");
+            StartCoroutine(TakeABreak(Random.Range(ChaseCooldownLow, ChaseCooldownHigh)));
         }
     }
 
@@ -65,5 +72,13 @@ public class Collidable : MonoBehaviour
         Destroy(gameObject);
         AudioSource.Stop();
         yield return null;
+    }
+
+    public IEnumerator TakeABreak(float duration)
+    {
+        if (resting) yield return null;
+        resting = true;
+        yield return new WaitForSeconds(duration);
+        resting = false;
     }
 }

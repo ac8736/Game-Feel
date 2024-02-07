@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     int SpriteColorIndex = 0;
-    public Color SpriteColor { get { return GameController.Colors[SpriteColorIndex]; } }
+    //public Color SpriteColor { get { return GameController.Colors[SpriteColorIndex]; } }
     // public CameraController Camera;
     public HealthManager healthbar;
     public int playerHealth = 100;

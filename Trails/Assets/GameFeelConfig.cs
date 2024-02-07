@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -36,6 +37,11 @@ namespace Assets
         {
             toggle = GetComponent<Toggle>();
             GetComponentInChildren<Text>().text = $"[{KeyShortcut}] {labelText}";
+            foreach (GameFeelFeature feature in Enum.GetValues(typeof(GameFeelFeature)))
+            {
+                config[feature] = false;
+            }
+
         }
 
         private void Update()

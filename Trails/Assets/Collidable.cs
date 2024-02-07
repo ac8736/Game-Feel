@@ -18,14 +18,6 @@ public class Collidable : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = direction * speed;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (isDead)
-        {
-            transform.localScale *= 0.95f;
-        }
-    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -39,6 +31,7 @@ public class Collidable : MonoBehaviour
         if (isDead) return;
         isDead = true;
         GetComponent<Collider2D>().enabled = false;
+        GetComponent<Animator>().SetTrigger("Die");
         if (GameFeelConfig.config[GameFeelFeature.Particles])
         {
             GetComponentInChildren<ParticleSystem>().Play();

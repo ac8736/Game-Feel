@@ -13,9 +13,9 @@ public class GameController : MonoBehaviour
     public static float SpawnIntervalChangeRate = -0.01f;
     public static GameController self;
 
-
     public PlayerController Player;
     public Collidable ObstaclePrefab;
+    public CameraController CameraController;
 
     private float spawnTimer = 0;
     private float gameOverDelay = 0f;

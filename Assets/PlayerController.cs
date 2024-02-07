@@ -7,18 +7,24 @@ public class PlayerController : MonoBehaviour
     int SpriteColorIndex = 0;
     public Color SpriteColor { get { return GameController.Colors[SpriteColorIndex]; } }
     // public CameraController Camera;
-
+    public HealthManager healthbar;
+    public int playerHealth = 100;
     SpriteRenderer SpriteRenderer;
     //ParticleSystem ParticleSystem;
     AudioSource AudioSource;
     Collider2D Collider;
     Rigidbody2D _rigidBody;
 
-    public bool IsDead { get; private set; } = false; 
+    public bool IsDead { get; private set; } = false;
 
-    private float cosX = 0;
-    private float moveFreq = 2;
-    private float moveHeight = 8;
+    public float invincibleCoolDown = 5.0f;
+
+    private bool canInvincible = true;
+    private bool isInvincible = false;
+
+    //private float cosX = 0;
+    //private float moveFreq = 2;
+    //private float moveHeight = 8;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +39,7 @@ public class PlayerController : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer($"Color{SpriteColorIndex}");
         _rigidBody = GetComponent<Rigidbody2D>();
         // Collider.excludeLayers = 1 << gameObject.layer;
+        healthbar.SetMaxHealth(playerHealth);
     }
 
     // Update is called once per frame
@@ -53,8 +60,16 @@ public class PlayerController : MonoBehaviour
             AudioSource.volume = 0.5f;
             AudioSource.Play();
         }
-        //transform.Translate(new Vector2(0, ((float)Math.Cos(cosX)) * moveHeight * Time.deltaTime));
-        //cosX += ((float)Math.PI) * Time.deltaTime;
+
+        if (Input.GetMouseButtonDown(0) && canInvincible)
+        {
+            StartCoroutine(Invincible());
+        }
+        
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            TakeDamage(20);
+        }
     }
 
     private void FixedUpdate()
@@ -92,5 +107,30 @@ public class PlayerController : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.None;
         rb.gravityScale = 1;
         //GetComponentInChildren<ParticleSystem>().Stop();
+    }
+
+    void TakeDamage(int dmg)
+    {
+        playerHealth -= dmg;
+        healthbar.SetHealth(playerHealth);
+    }
+
+    IEnumerator Invincible()
+    {
+        canInvincible = false;
+        healthbar.SetShieldUI(canInvincible);
+        isInvincible = true;
+        healthbar.SetInvincible(isInvincible);
+        yield return new WaitForSeconds(3);
+        isInvincible = false;
+        healthbar.SetInvincible(isInvincible);
+        StartCoroutine(InvincibleCoolDown());
+    }
+
+    IEnumerator InvincibleCoolDown()
+    {
+        yield return new WaitForSeconds(invincibleCoolDown);
+        canInvincible = true;
+        healthbar.SetShieldUI(canInvincible);
     }
 }

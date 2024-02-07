@@ -7,16 +7,36 @@ using UnityEngine.UI;
 public class UpdateScore : MonoBehaviour
 {
     [SerializeField]
-    private TMP_Text score;
+    private TMP_Text scoreBox;
+
+    private int score;
+    private int combo;
     // Start is called before the first frame update
     void Start()
     {
-        score = GetComponent<TMP_Text>();
+        scoreBox = GetComponent<TMP_Text>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        this.score.text = GlobalVars.score.ToString() + "\n" + GlobalVars.combo.ToString() + "x";
+
+        if (score > GlobalVars.score)
+        {
+            score = GlobalVars.score;
+        }
+        if (GlobalVars.score > score)
+        {
+            score += 5;
+        }
+        if (GlobalVars.combo > combo)
+        {
+            combo = GlobalVars.combo;
+        }
+        if (GlobalVars.combo < combo)
+        {
+            combo--;
+        }
+        this.scoreBox.text = score.ToString() + "\n" + combo.ToString() + "x";
     }
+
 }

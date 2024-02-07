@@ -6,12 +6,13 @@ public class PlayerController : MonoBehaviour
 {
     int SpriteColorIndex = 0;
     public Color SpriteColor { get { return GameController.Colors[SpriteColorIndex]; } }
-    public CameraController Camera;
+    // public CameraController Camera;
 
     SpriteRenderer SpriteRenderer;
-    ParticleSystem ParticleSystem;
+    //ParticleSystem ParticleSystem;
     AudioSource AudioSource;
     Collider2D Collider;
+    Rigidbody2D _rigidBody;
 
     public bool IsDead { get; private set; } = false; 
 
@@ -23,13 +24,14 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         SpriteRenderer = GetComponent<SpriteRenderer>();
-        ParticleSystem = GetComponentInChildren<ParticleSystem>();
+        //ParticleSystem = GetComponentInChildren<ParticleSystem>();
         Collider = GetComponent<Collider2D>();
         AudioSource = GetComponent<AudioSource>();
-        var main = ParticleSystem.main;
-        main.startColor = new ParticleSystem.MinMaxGradient(SpriteColor);
+        //var main = ParticleSystem.main;
+        //main.startColor = new ParticleSystem.MinMaxGradient(SpriteColor);
         SpriteRenderer.color = SpriteColor;
         gameObject.layer = LayerMask.NameToLayer($"Color{SpriteColorIndex}");
+        _rigidBody = GetComponent<Rigidbody2D>();
         // Collider.excludeLayers = 1 << gameObject.layer;
     }
 
@@ -51,8 +53,15 @@ public class PlayerController : MonoBehaviour
             AudioSource.volume = 0.5f;
             AudioSource.Play();
         }
-        transform.Translate(new Vector2(0, ((float)Math.Cos(cosX)) * moveHeight * Time.deltaTime));
-        cosX += ((float)Math.PI) * Time.deltaTime;
+        //transform.Translate(new Vector2(0, ((float)Math.Cos(cosX)) * moveHeight * Time.deltaTime));
+        //cosX += ((float)Math.PI) * Time.deltaTime;
+    }
+
+    private void FixedUpdate()
+    {
+        Vector3 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 movementDirection = (cursorPos - transform.position).normalized;
+        _rigidBody.velocity = movementDirection * 30f;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -73,7 +82,7 @@ public class PlayerController : MonoBehaviour
         // No issue if the colors match
         if (component.SpriteColor == SpriteColor)
         {
-            Camera.Shake(0.5f, 0.15f);
+            // Camera.Shake(0.5f, 0.15f);
             component.Die();
             GameController.Score += GameController.MovementForce * 2;
             return;
@@ -82,6 +91,6 @@ public class PlayerController : MonoBehaviour
         var rb = GetComponent<Rigidbody2D>();
         rb.constraints = RigidbodyConstraints2D.None;
         rb.gravityScale = 1;
-        GetComponentInChildren<ParticleSystem>().Stop();
+        //GetComponentInChildren<ParticleSystem>().Stop();
     }
 }
